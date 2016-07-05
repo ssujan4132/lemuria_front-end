@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require("@angular/router");
-var AppComponent = (function () {
-    function AppComponent() {
+var HeroComponent = (function () {
+    function HeroComponent() {
     }
-    AppComponent = __decorate([
+    HeroComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            selector: 'hero',
+            templateUrl: 'app/hero/hero.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], HeroComponent);
+    return HeroComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HeroComponent = HeroComponent;
+//# sourceMappingURL=hero.component.js.map

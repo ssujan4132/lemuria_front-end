@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
+import {RouterConfig, provideRouter} from "@angular/router";
+import {HeroComponent} from "./hero/hero.component";
+import {ROUTER_DIRECTIVES} from "@angular/router";
+
+
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    templateUrl: 'app/app.component.html',
+    directives : [ROUTER_DIRECTIVES]
 })
+
+
+
 export class AppComponent { }
