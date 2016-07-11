@@ -1,3 +1,16 @@
-<div>
-    Register
-</div>
+<form class="form-signin" (ngSubmit)="submit()">
+    {{diagnostic}}
+    <h2 class="form-signin-heading">Registration</h2>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input [(ngModel)]="registerModel.emailAddress" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <br />
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input [(ngModel)]="registerModel.userName" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+    <br />
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input [(ngModel)]="registerModel.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
+</form>

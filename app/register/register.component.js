@@ -10,16 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
+var register_model_1 = require("./register.model");
 var RegisterComponent = (function () {
-    function RegisterComponent() {
+    function RegisterComponent(registerModel) {
+        this.registerModel = registerModel;
     }
+    RegisterComponent.prototype.submit = function () {
+        alert(JSON.stringify(this.registerModel));
+    };
+    Object.defineProperty(RegisterComponent.prototype, "diagnostic", {
+        // TODO: Remove this when we're done
+        get: function () { return JSON.stringify(this.registerModel); },
+        enumerable: true,
+        configurable: true
+    });
     RegisterComponent = __decorate([
         core_1.Component({
-            selector: 'header',
+            selector: 'register',
             templateUrl: 'app/register/register.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [forms_1.provideForms(), register_model_1.RegisterModel]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [register_model_1.RegisterModel])
     ], RegisterComponent);
     return RegisterComponent;
 }());
