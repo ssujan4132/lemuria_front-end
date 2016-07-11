@@ -12,6 +12,8 @@ var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
 var header_component_1 = require("./header/header.component");
 var footer_component_1 = require("./footer/footer.component");
+var http_service_1 = require("./common/service/http.service");
+var http_1 = require("@angular/http");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -19,7 +21,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent]
+            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
+            providers: [http_1.HTTP_PROVIDERS, http_service_1.HttpService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

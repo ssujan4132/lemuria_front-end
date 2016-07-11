@@ -12,12 +12,17 @@ var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 var register_model_1 = require("./register.model");
+var register_api_1 = require("../common/api/register.api");
 var RegisterComponent = (function () {
-    function RegisterComponent(registerModel) {
+    function RegisterComponent(registerModel, _registerApi) {
         this.registerModel = registerModel;
+        this._registerApi = _registerApi;
     }
     RegisterComponent.prototype.submit = function () {
-        alert(JSON.stringify(this.registerModel));
+        var _this = this;
+        this._registerApi.registerUser(this.registerModel)
+            .then(function (resp) { return _this.onRegisterUser(resp); })
+            .catch(function (error) { return _this.onError(error); });
     };
     Object.defineProperty(RegisterComponent.prototype, "diagnostic", {
         // TODO: Remove this when we're done
@@ -25,14 +30,20 @@ var RegisterComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    RegisterComponent.prototype.onRegisterUser = function (resp) {
+        console.log(resp);
+    };
+    RegisterComponent.prototype.onError = function (error) {
+        console.log(error);
+    };
     RegisterComponent = __decorate([
         core_1.Component({
             selector: 'register',
             templateUrl: 'app/register/register.component.html',
             directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [forms_1.provideForms(), register_model_1.RegisterModel]
+            providers: [forms_1.provideForms(), register_model_1.RegisterModel, register_api_1.RegisterApi]
         }), 
-        __metadata('design:paramtypes', [register_model_1.RegisterModel])
+        __metadata('design:paramtypes', [register_model_1.RegisterModel, register_api_1.RegisterApi])
     ], RegisterComponent);
     return RegisterComponent;
 }());
