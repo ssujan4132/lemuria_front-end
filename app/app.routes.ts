@@ -1,12 +1,17 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
 import {HeroComponent} from "./hero/hero.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {RegisterComponent} from "./register/register.component";
 
 export const routes: RouterConfig = [
     {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     },
     {
         path: 'dashboard',

@@ -2,11 +2,16 @@
 var router_1 = require('@angular/router');
 var hero_component_1 = require("./hero/hero.component");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
+var register_component_1 = require("./register/register.component");
 exports.routes = [
     {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
+    },
+    {
+        path: 'register',
+        component: register_component_1.RegisterComponent
     },
     {
         path: 'dashboard',
