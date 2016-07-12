@@ -124,7 +124,7 @@ export class HttpService {
             //     throw new Error(tempData.code.toString());
             // else
                 resolve(data);
-        })
+        });
     }
 
     private handleError(error:any) {
