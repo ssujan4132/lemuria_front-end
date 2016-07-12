@@ -11,92 +11,86 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require('rxjs/Rx');
-var Observable_1 = require("rxjs/Observable");
 var HttpService = (function () {
     function HttpService(_http) {
         this._http = _http;
     }
-    HttpService.prototype.get = function (requestOptionsArgs) {
-        var _this = this;
-        // url can be left empty '', but just for consistency it is being added.
-        return this._http.get(requestOptionsArgs.url, requestOptionsArgs)
-            .map(function (res) {
-            console.log(res);
-            try {
-                return res.json().results;
-            }
-            catch (error) {
-                var errorObj = {
-                    error: res._body
-                };
-                throw new Error(JSON.stringify(errorObj));
-            }
-        })
-            .catch(function (err) { return _this.errorHandler(err); });
-    };
-    HttpService.prototype.errorHandler = function (err) {
-        try {
-            return Observable_1.Observable.throw(err.json());
-        }
-        catch (error) {
-            var errObj = JSON.parse(err.message);
-            return Observable_1.Observable.throw(errObj);
-        }
-    };
-    HttpService.prototype.post = function (requestOptionsArgs) {
-        var _this = this;
-        // url and body can be left empty '', but just for consistency it is being added.
-        return this._http.post(requestOptionsArgs.url, requestOptionsArgs.body, requestOptionsArgs)
-            .map(function (res) {
-            console.log(res);
-            try {
-                return res.json().results;
-            }
-            catch (error) {
-                var errorObj = {
-                    error: res._body
-                };
-                throw new Error(JSON.stringify(errorObj));
-            }
-        })
-            .catch(function (err) { return _this.errorHandler(err); });
-    };
-    HttpService.prototype.put = function (requestOptionsArgs) {
-        var _this = this;
-        // url and body can be left empty '', but just for consistency it is being added.
-        return this._http.put(requestOptionsArgs.url, requestOptionsArgs.body, requestOptionsArgs)
-            .map(function (res) {
-            console.log(res);
-            try {
-                return res.json().results;
-            }
-            catch (error) {
-                var errorObj = {
-                    error: res._body
-                };
-                throw new Error(JSON.stringify(errorObj));
-            }
-        })
-            .catch(function (err) { return _this.errorHandler(err); });
-    };
-    HttpService.prototype.delete = function (requestOptionsArgs) {
-        var _this = this;
-        // url and body can be left empty '', but just for consistency it is being added.
-        return this._http.delete(requestOptionsArgs.url, requestOptionsArgs)
-            .map(function (res) {
-            console.log(res);
-            try {
-                return res.json().results;
-            }
-            catch (error) {
-                var errorObj = {
-                    error: res._body
-                };
-                throw new Error(JSON.stringify(errorObj));
-            }
-        })
-            .catch(function (err) { return _this.errorHandler(err); });
-    };
+    // get<T>(requestOptionsArgs : RequestOptionsArgs) : Observable<T>{
+    //     // url can be left empty '', but just for consistency it is being added.
+    //     return this._http.get(requestOptionsArgs.url,requestOptionsArgs)
+    //         .map(res => {
+    //             console.log(res);
+    //             try {
+    //                 return <T>res.json().results;
+    //             }catch (error) {
+    //                 let errorObj = {
+    //                     error : res._body
+    //                 }
+    //                 throw new Error(JSON.stringify(errorObj));
+    //             }
+    //         })
+    //         .catch(err => this.errorHandler(err))
+    // }
+    //
+    // errorHandler(err){
+    //     try{
+    //         return Observable.throw(err.json());
+    //     }catch(error){
+    //         var errObj = JSON.parse(err.message);
+    //         return Observable.throw(errObj);
+    //     }
+    // }
+    //
+    // post<T>(requestOptionsArgs : RequestOptionsArgs) : Observable<T>{
+    //     // url and body can be left empty '', but just for consistency it is being added.
+    //     return this._http.post(requestOptionsArgs.url,requestOptionsArgs.body,requestOptionsArgs)
+    //         .map(res => {
+    //             console.log(res);
+    //             try {
+    //                 return <T>res.json().results;
+    //             }catch (error) {
+    //                 let errorObj = {
+    //                     error : res._body
+    //                 }
+    //                 throw new Error(JSON.stringify(errorObj));
+    //             }
+    //         })
+    //         .catch(err => this.errorHandler(err));
+    // }
+    //
+    // put<T>(requestOptionsArgs : RequestOptionsArgs) : Observable<T>{
+    //     // url and body can be left empty '', but just for consistency it is being added.
+    //     return this._http.put(requestOptionsArgs.url,requestOptionsArgs.body,requestOptionsArgs)
+    //         .map(res => {
+    //             console.log(res);
+    //             try {
+    //                 return <T>res.json().results;
+    //             }catch (error) {
+    //                 let errorObj = {
+    //                     error : res._body
+    //                 }
+    //                 throw new Error(JSON.stringify(errorObj));
+    //             }
+    //         })
+    //         .catch(err => this.errorHandler(err));
+    // }
+    //
+    // delete<T>(requestOptionsArgs : RequestOptionsArgs) : Observable<T>{
+    //     // url and body can be left empty '', but just for consistency it is being added.
+    //     return this._http.delete(requestOptionsArgs.url,requestOptionsArgs)
+    //         .map(res => {
+    //             console.log(res);
+    //             try {
+    //                 return <T>res.json().results;
+    //             }catch (error) {
+    //                 let errorObj = {
+    //                     error : res._body
+    //                 }
+    //                 throw new Error(JSON.stringify(errorObj));
+    //             }
+    //         })
+    //         .catch(err => this.errorHandler(err));
+    // }
     HttpService.prototype.getPromise = function (requestOptionsArgs) {
         var _this = this;
         // url can be left empty '', but just for consistency it is being added.

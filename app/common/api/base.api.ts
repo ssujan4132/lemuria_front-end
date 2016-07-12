@@ -24,7 +24,7 @@ export class BaseApi{
         return requestOptionsArgs;
     }
 
-    protected validateResponse(resp:any,code) {
+    protected validateResponse(resp:any,code:any) {
         return new Promise(function (resolve, reject) {
             if(resp.code == code)
                 resolve(resp);
