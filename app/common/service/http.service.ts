@@ -117,12 +117,12 @@ export class HttpService {
 
     extractData(res:Response) {
         console.log(res);
-        let data = res.json().results;
+        let data = res.json();
         return new Promise(function (resolve, reject) {
-            let tempData = <any>data;
-            if(tempData.code == 901 || tempData.code == 902)
-                throw new Error(tempData.code.toString());
-            else
+            //let tempData = <any>data;
+            // if(tempData.code == 901 || tempData.code == 902)
+            //     throw new Error(tempData.code.toString());
+            // else
                 resolve(data);
         })
     }

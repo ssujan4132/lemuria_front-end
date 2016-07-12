@@ -21,10 +21,10 @@ var RegisterApi = (function () {
         headers.append('Content-Type', 'application/json');
         var body = JSON.stringify(data);
         var requestOptionsArgs = {
-            method: http_1.RequestMethod.Get,
+            method: http_1.RequestMethod.Post,
             headers: headers,
             body: body,
-            url: 'http://www.google.com'
+            url: 'http://localhost:5000/register'
         };
         return this._httpService.postPromise(requestOptionsArgs);
     };

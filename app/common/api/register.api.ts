@@ -16,10 +16,10 @@ export class RegisterApi{
         let body : string = JSON.stringify(data);
 
         let requestOptionsArgs:RequestOptionsArgs = {
-            method: RequestMethod.Get,
+            method: RequestMethod.Post,
             headers: headers,
             body : body,
-            url: 'http://www.google.com'
+            url: 'http://localhost:5000/register'
         };
 
         return this._httpService.postPromise(requestOptionsArgs);

@@ -128,13 +128,13 @@ var HttpService = (function () {
     };
     HttpService.prototype.extractData = function (res) {
         console.log(res);
-        var data = res.json().results;
+        var data = res.json();
         return new Promise(function (resolve, reject) {
-            var tempData = data;
-            if (tempData.code == 901 || tempData.code == 902)
-                throw new Error(tempData.code.toString());
-            else
-                resolve(data);
+            //let tempData = <any>data;
+            // if(tempData.code == 901 || tempData.code == 902)
+            //     throw new Error(tempData.code.toString());
+            // else
+            resolve(data);
         });
     };
     HttpService.prototype.handleError = function (error) {
